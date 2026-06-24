@@ -46,9 +46,10 @@ jobs:
           path: frontend/dist
 
       - name: Deploy compiled website
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
 
-    environment:
+   environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
